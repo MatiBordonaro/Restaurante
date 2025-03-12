@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Comida } from './menu';
 
 @Component({
   selector: 'app-menu',
@@ -7,10 +8,24 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-  hambur = {
-    "nombre": "Hamburguesa completa",
-    "precio": "1500",
-    "categoria": "Plato principal",
-    "imagen": "img/hambcompleta.png"
-  }
+  comidas: Comida[] = [
+    {
+      nombre: "Hamburguesa completa",
+      precio: 1500,
+      categoria: "Plato principal",
+      imagen: "img/hambcompleta.png"
+    },
+    {
+      nombre: "Papas fritas",
+      precio: 850,
+      categoria: "Entrada",
+      imagen: "img/papas.jpeg"
+    },
+    {
+      nombre: "Helado",
+      precio: 1300,
+      categoria: "Postre",
+      imagen: "img/helado.png"
+    },
+  ]
 }

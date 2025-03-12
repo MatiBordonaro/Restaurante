@@ -8,23 +8,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="hambur.imagen" [alt]="hambur.nombre"></td>
-            <td>{{hambur.nombre}}</td>
-            <td>{{hambur.precio}}</td>
-            <td>{{hambur.categoria}}</td>
-        </tr>
-        <tr>
-            <td>sss</td>
-            <td>sss</td>
-            <td>sss</td>
-            <td>sss</td>
-        </tr>
-        <tr>
-            <td>sss</td>
-            <td>sss</td>
-            <td>sss</td>
-            <td>sss</td>
+        <tr *ngFor="let comida of comidas">
+            <td><img [src]="comida.imagen" [alt]="comida.nombre"></td>
+            <td>{{comida.nombre}}</td>
+            <td>{{comida.precio}}</td>
+            <td>{{comida.categoria}}</td>
         </tr>
     </tbody>
 </table>
