@@ -23,9 +23,11 @@
                     <td>SIN STOCK</td>
                 }
                 <td class="col-1">
-                    <button class="btn btn-primary btn-sm" (click)="downCantidad(comida)">-</button>
-                    <input class="form-control form-control-sm" type="text" [(ngModel)]="comida.cantidad">
-                    <button class="btn btn-primary btn-sm" (click)="upCantidad(comida)">+</button></td>
+                    @if (comida.stock){
+                        <app-input-integer [(cantidad)]="comida.cantidad" [max]="comida.stock"></app-input-integer>
+                        cant: {{comida.cantidad}}
+                    }
+                </td>
             </tr>
         } @empty {
             <tr>

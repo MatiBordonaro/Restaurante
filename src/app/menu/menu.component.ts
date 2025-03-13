@@ -37,14 +37,4 @@ export class MenuComponent {
       cantidad: 0
     },
   ]
-
-  downCantidad(comida: Comida){
-    if(comida.cantidad > 0)
-      comida.cantidad--;
-  }
-
-  upCantidad(comida: Comida){
-    if(comida.cantidad < comida.stock)
-      comida.cantidad++;
-  }
 }
