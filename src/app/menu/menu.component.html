@@ -1,18 +1,36 @@
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>Imagen</th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Categoria</th>
+            <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let comida of comidas">
-            <td><img [src]="comida.imagen" [alt]="comida.nombre"></td>
-            <td>{{comida.nombre}}</td>
-            <td>{{comida.precio}}</td>
-            <td>{{comida.categoria}}</td>
-        </tr>
+        @for (comida of comidas; track comida.nombre) {
+            <tr [ngClass]="{'oferta': comida.oferta}">
+                <td><img class="img-thumbnail img-menu"
+                    [src]="comida.imagen" [alt]="comida.nombre"></td>
+                <td>{{comida.nombre}}</td>
+                <td>{{comida.precio | currency}}</td>
+                <td>{{comida.categoria}}</td>
+                @if (comida.stock > 0) {
+                    <td>{{comida.stock}}</td>
+                } @else {
+                    <td>SIN STOCK</td>
+                }
+                <td class="col-1">
+                    <button class="btn btn-primary btn-sm" (click)="downCantidad(comida)">-</button>
+                    <input class="form-control form-control-sm" type="text" [(ngModel)]="comida.cantidad">
+                    <button class="btn btn-primary btn-sm" (click)="upCantidad(comida)">+</button></td>
+            </tr>
+        } @empty {
+            <tr>
+                <td><span class="badge badge-warning">No hay cervezas para mostrar</span></td>
+            </tr>
+        }
     </tbody>
 </table>
