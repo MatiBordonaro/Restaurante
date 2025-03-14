@@ -1,11 +1,7 @@
 <div class="input-group">
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <button class="btn btn-primary btn-sm" (click)="bajarCantidad()">-</button>
-        </div>
-        <input type="text" class="text-center" [(ngModel)]="cantidad" (keyup)="cambiarCantidad()">
-        <div class="input-group-prepend">
-            <button class="btn btn-primary btn-sm" (click)="subirCantidad()">+</button>
-        </div>
+    <div class="input-group mt-5 pt-5">
+        <button class="btn btn-primary btn-sm" (click)="bajarCantidad()">-</button>
+        <input type="text" class="text-center form-control form-control-sm" [(ngModel)]="cantidad" (keyup)="cambiarCantidad()">
+        <button class="btn btn-primary btn-sm" (click)="subirCantidad()">+</button>
     </div>
 </div>

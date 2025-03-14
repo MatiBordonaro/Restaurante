@@ -1,33 +1,24 @@
-<table class="table text-center">
-    <thead>
-        <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Categoria</th>
-            <th>Stock</th>
-            <th>Compra</th>
-        </tr>
-    </thead>
+<table class="table text-center tabla">
     <tbody>
         @for (comida of comidas; track comida.nombre) {
             <tr [ngClass]="{'oferta': comida.oferta}">
-                <td><img class="img-thumbnail img-menu"
+                <td><img class="img-fluid rounded-3 border img-menu"
                     [src]="comida.imagen" [alt]="comida.nombre"></td>
-                <td>{{comida.nombre}}</td>
-                <td>{{comida.precio | currency}}</td>
-                <td>{{comida.categoria}}</td>
-                @if (comida.stock > 0) {
-                    <td>{{comida.stock}}</td>
-                } @else {
-                    <td>SIN STOCK</td>
-                }
-                <td class="col-1">
-                    @if (comida.stock){
-                        <app-input-integer [(cantidad)]="comida.cantidad" [max]="comida.stock"></app-input-integer>
-                        cant: {{comida.cantidad}}
+                <div class="contenedor-atributos-comida">
+                    <td class="nombre mb-2">{{comida.nombre | uppercase}}</td>
+                    <td class="fs-6"><i>{{comida.categoria}}</i></td>
+                    <td>{{comida.precio | currency}}</td>
+                    <td class="input-integer">
+                        @if (comida.stock){
+                            <app-input-integer [(cantidad)]="comida.cantidad" [max]="comida.stock"></app-input-integer>
+                        }
+                    </td>
+                    @if (comida.stock > 0) {
+                        <td class="stock">stock: {{comida.stock}}</td>
+                    } @else {
+                        <td>SIN STOCK</td>
                     }
-                </td>
+                </div>
             </tr>
         } @empty {
             <tr>

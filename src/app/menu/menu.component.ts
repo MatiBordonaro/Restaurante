@@ -10,10 +10,10 @@ import { Comida } from './menu';
 export class MenuComponent {
   comidas: Comida[] = [
     {
-      nombre: "Hamburguesa completa",
+      nombre: "Hamburguesa",
       precio: 1500,
       categoria: "Plato principal",
-      imagen: "img/hambcompleta.png",
+      imagen: "img/hambur.jpg",
       stock: 5,
       oferta: false,
       cantidad: 0
@@ -22,7 +22,7 @@ export class MenuComponent {
       nombre: "Papas fritas",
       precio: 850,
       categoria: "Entrada",
-      imagen: "img/papas.jpeg",
+      imagen: "img/papas.jpg",
       stock: 0,
       oferta: false,
       cantidad: 0
@@ -31,7 +31,7 @@ export class MenuComponent {
       nombre: "Helado",
       precio: 1300,
       categoria: "Postre",
-      imagen: "img/helado.png",
+      imagen: "img/helado.jpeg",
       stock: 6,
       oferta: true,
       cantidad: 0
