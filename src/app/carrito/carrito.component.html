@@ -1,1 +1,6 @@
-<p>carrito works!</p>
+<h3>Carrito de compras</h3>
+<ul>
+    @for (comida of listaCarrito$ | async; track $index) {
+        <li>{{comida.nombre}}:{{comida.cantidad}}</li>
+    }
+</ul>

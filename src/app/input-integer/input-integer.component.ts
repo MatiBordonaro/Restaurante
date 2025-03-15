@@ -16,6 +16,9 @@ export class InputIntegerComponent {
 
   @Output()
   cantidadChange: EventEmitter<number> = new EventEmitter<number>()
+
+  @Output()
+  maximoAlcanzado: EventEmitter<string> = new EventEmitter<string>()
   
 
   bajarCantidad(): void {
@@ -29,6 +32,8 @@ export class InputIntegerComponent {
     if(this.cantidad < this.max){
       this.cantidad++;
       this.cantidadChange.emit(this.cantidad);
+    } else {
+      this.maximoAlcanzado.emit("Se alcanzó el máximo de este producto")
     }
 
   }

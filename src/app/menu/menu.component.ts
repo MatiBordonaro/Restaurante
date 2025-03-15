@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Comida } from './menu';
+import { CarritoMenuService } from '../carrito-menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -37,4 +38,16 @@ export class MenuComponent {
       cantidad: 0
     },
   ]
+
+  constructor(private carrito: CarritoMenuService){}
+
+  agregarAlCarrito(comida: Comida): void{
+    this.carrito.agregarAlCarrito(comida);
+    comida.stock -= comida.cantidad;
+    comida.cantidad = 0;
+  }
+
+  maximoAlcanzado(m: String){
+    alert(m);
+  }
 }

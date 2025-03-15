@@ -10,7 +10,8 @@
                     <td>{{comida.precio | currency}}</td>
                     <td class="input-integer">
                         @if (comida.stock){
-                            <app-input-integer [(cantidad)]="comida.cantidad" [max]="comida.stock"></app-input-integer>
+                            <app-input-integer [(cantidad)]="comida.cantidad" [max]="comida.stock" (maximoAlcanzado)="maximoAlcanzado($event)"></app-input-integer>
+                            <button class="btn btn-primary" (click)="agregarAlCarrito(comida)">Comprar</button>
                         }
                     </td>
                     @if (comida.stock > 0) {
